@@ -191,6 +191,19 @@ def cleanup():
     cleanup_system()
 
 
+@manager.command
+def gql():
+    from aleph.graphql import schema
+    query = '''
+        query SayHello {
+        hello
+        }
+    '''
+    result = schema.execute(query)
+    print dir(result)
+    print result.data
+
+
 def main():
     manager.run()
 
