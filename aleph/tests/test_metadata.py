@@ -32,17 +32,6 @@ class MetadataTestCase(TestCase):
         assert len(meta.urls) == 1, meta.urls
         assert len(meta.domains) == 1, meta.domains
 
-    def test_emails(self):
-        meta = Metadata()
-        meta.add_email('huhu@pudo.org')
-        assert len(meta.emails) == 1, meta.emails
-        assert len(meta.domains) == 1, (meta.emails, meta.domains)
-        assert meta.domains[0] == 'pudo.org', meta.domains
-
-        meta = Metadata()
-        meta.add_email('not-an-email')
-        assert len(meta.emails) == 0, meta.emails
-
     def test_dates(self):
         meta = Metadata()
         meta.add_date('yada yada')
