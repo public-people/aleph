@@ -66,7 +66,7 @@ class HomeScreen extends Component {
             </div>
           </form>
         </div>
-        <CollectionBrowser />
+        <CollectionBrowser hasTitle={true} />
       </Screen>
     );
   }

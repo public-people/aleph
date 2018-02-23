@@ -17,6 +17,11 @@ const PageNavbar = ({metadata, session}) => (
         <Link to="/">{metadata.app.title}</Link>
       </div>
     </div>
+    <div className="pt-navbar-group pt-align-left">
+      <div className="pt-navbar-heading">
+        <Link to="/collections">Collections</Link>
+      </div>
+    </div>
     <div className="pt-navbar-group pt-align-right">
       <AuthButtons session={session} auth={metadata.auth} />
     </div>

@@ -19,6 +19,7 @@ import HomeScreen from 'src/components/HomeScreen';
 import CollectionScreen from 'src/components/CollectionScreen';
 import ProfileScreen from 'src/components/ProfileScreen';
 import ErrorScreen from 'src/components/ErrorScreen';
+import CollectionsScreen from 'src/components/CollectionScreen/Collections/CollectionsScreen';
 import PageNavbar from './PageNavbar';
 
 import './PageLayout.css';
@@ -65,6 +66,7 @@ class PageLayout extends Component {
             <Route path="/collections/:collectionId" exact component={CollectionScreen}/>
             <Route path="/search" exact component={SearchScreen}/>
             <Route path="/" exact component={HomeScreen}/>
+            <Route path="/collections" exact component={CollectionsScreen}/>
             <Route component={ErrorScreen}/>
           </Switch>
         </main>

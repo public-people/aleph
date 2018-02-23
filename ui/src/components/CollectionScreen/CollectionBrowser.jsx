@@ -38,7 +38,7 @@ class CollectionBrowser extends Component {
   }
 
   fetchData() {
-    this.setState({isFetching: true})
+    this.setState({isFetching: true});
     let { query } = this.props;
     query = query.limit(30);
     this.props.fetchCollections({
@@ -67,7 +67,7 @@ class CollectionBrowser extends Component {
     if (!result || !result.next || isFetching) {
         return
     }
-    this.setState({isFetching: true})
+    this.setState({isFetching: true});
     const offset = result.offset || 0;
     let query = this.props.query;
     query = query.offset(offset + result.limit);
@@ -86,20 +86,20 @@ class CollectionBrowser extends Component {
   }
 
   render() {
-    const { intl } = this.props;
+    const { intl, hasTitle } = this.props;
     const { result, queryText, isFetching } = this.state;
     const { total = 0 } = result;
     return (
       <section className="CollectionBrowser">
         <div className="header">
-          <h1>
+          {hasTitle !== undefined && hasTitle && <h1>
             <FormattedMessage id="collection.browser.title"
               defaultMessage="Browse {count} collections"
               values={{
                 count: (<FormattedNumber value={total} />)
               }}
             />
-          </h1>
+          </h1>}
           <div className="filterCollectionsInput pt-input-group">
               <i className="pt-icon pt-icon-search" />
               <input className="pt-input" type="search"
@@ -117,7 +117,7 @@ class CollectionBrowser extends Component {
             // Hacky: we append N-2 empty divs, to prevent the last item(s) from
             // trying to fill up the whole bottom row.
             range(0, result.results.length - 2).map(i => (
-              <div key={i} className="bogus result"></div>
+              <div key={i} className="bogus result"/>
             ))
           }
           { !isFetching && result.next && (
@@ -139,7 +139,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     query: Query.fromLocation(ownProps.location, {}, 'co')
   };
-}
+};
 
 CollectionBrowser = connect(mapStateToProps, { fetchCollections })(CollectionBrowser);
 CollectionBrowser = injectIntl(withRouter(CollectionBrowser));
