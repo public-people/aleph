@@ -6,6 +6,7 @@ import {throttle} from 'lodash';
 import rootReducer from 'src/reducers';
 import {loadState, saveState} from './storage';
 import errorToastMiddleware from './error-toast-middleware';
+import clippyMiddleware from './clippy-middleware';
 
 const persistedState = loadState();
 const store = createStore(
@@ -14,6 +15,7 @@ const store = createStore(
   applyMiddleware(
     thunk,
     errorToastMiddleware,
+    clippyMiddleware,
     // logger
   )
 );
