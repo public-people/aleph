@@ -21,8 +21,8 @@ def init_search():
             TYPE_LINK: LINK_MAPPING,
             TYPE_LEAD: LEAD_MAPPING
         }
-    }, ignore=[404, 400])
-    es.indices.open(index=es_index, ignore=[400, 404])
+    })
+    es.indices.open(index=es_index)
 
 
 def upgrade_search():
@@ -41,7 +41,7 @@ def upgrade_search():
 
 
 def delete_index():
-    es.indices.delete(es_index, ignore=[404, 400])
+    es.indices.delete(es_index)
 
 
 def delete_doc_type(doc_type):
