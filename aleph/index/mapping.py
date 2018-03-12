@@ -48,6 +48,7 @@ DOCUMENT_MAPPING = {
         "domains": {"type": "keyword"},
         "phone_numbers": {"type": "keyword"},
         "dates": {"type": "date", "format": "yyyy-MM-dd||yyyy-MM||yyyy-MM-d||yyyy-M||yyyy"},  # noqa
+        "publication_date": {"type": "date", "format": "yyyy-MM-dd"},  # noqa
         "mime_type": {"type": "keyword"},
         "author": {"type": "text", "index": "not_analyzed"},
         "summary": {"type": "text", "index": "analyzed"},

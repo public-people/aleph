@@ -258,6 +258,15 @@ class Metadata(object):
             self.update_meta()
 
     @property
+    def publication_date(self):
+        return self.meta.get('publication_date', None)
+
+    @publication_date.setter
+    def publication_date(self, date):
+        self.meta['publication_date'] = date
+        self.add_date(date)
+
+    @property
     def extension(self):
         extension = self.meta.get('extension')
 
@@ -365,6 +374,7 @@ class Metadata(object):
             'urls': self.urls,
             'domains': self.domains,
             'dates': self.dates,
+            'publication_date': self.publication_date,
             'emails': self.emails,
             'keywords': self.keywords,
             'encoding': self.encoding,
